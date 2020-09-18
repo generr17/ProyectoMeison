@@ -1,38 +1,54 @@
-$(document).ready(function(){
+/**
+* Template Name: Siimple - v2.1.0
+* Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+!(function($) {
+  "use strict";
 
-	// MOSTRANDO Y OCULTANDO MENU
-	$('#button-menu').click(function(){
-		if($('#button-menu').attr('class') == 'fa fa-bars' ){
+  // Toggle nav menu
+  $(document).on('click', '.nav-toggle', function(e) {
+    $('.nav-menu').toggleClass('nav-menu-active');
+    $('.nav-toggle').toggleClass('nav-toggle-active');
+    $('.nav-toggle i').toggleClass('bx-x bx-menu');
 
-			$('.navegacion').css({'width':'100%', 'background':'rgba(0,0,0,.5)'}); // Mostramos al fondo transparente
-			$('#button-menu').removeClass('fa fa-bars').addClass('fa fa-close'); // Agregamos el icono X
-			$('.navegacion .menu').css({'left':'0px'}); // Mostramos el menu
+  });
 
-		} else{
+  // Toogle nav menu drop-down items
+  $(document).on('click', '.nav-menu .drop-down > a', function(e) {
+    e.preventDefault();
+    $(this).next().slideToggle(300);
+    $(this).parent().toggleClass('active');
+  });
 
-			$('.navegacion').css({'width':'0%', 'background':'rgba(0,0,0,.0)'}); // Ocultamos el fonto transparente
-			$('#button-menu').removeClass('fa fa-close').addClass('fa fa-bars'); // Agregamos el icono del Menu
-			$('.navegacion .submenu').css({'left':'-320px'}); // Ocultamos los submenus
-			$('.navegacion .menu').css({'left':'-320px'}); // Ocultamos el Menu
+  // Smooth scroll for the navigation menu and links with .scrollto classes
+  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      e.preventDefault();
+      var target = $(this.hash);
+      if (target.length) {
 
-		}
-	});
+        var scrollto = target.offset().top;
 
-	// MOSTRANDO SUBMENU
-	$('.navegacion .menu > .item-submenu a').click(function(){
-		
-		var positionMenu = $(this).parent().attr('menu'); // Buscamos el valor del atributo menu y lo guardamos en una variable
-		console.log(positionMenu); 
+        if ($(this).attr("href") == '#header') {
+          scrollto = 0;
+        }
 
-		$('.item-submenu[menu='+positionMenu+'] .submenu').css({'left':'0px'}); // Mostramos El submenu correspondiente
+        $('html, body').animate({
+          scrollTop: scrollto
+        }, 1500, 'easeInOutExpo');
 
-	});
+        if ($(this).parents('.nav-menu').length) {
+          $('.nav-menu .active').removeClass('active');
+          $(this).closest('li').addClass('active');
+          $('.nav-menu').removeClass('nav-menu-active');
+          $('.nav-toggle').removeClass('nav-toggle-active');
+          $('.nav-toggle i').toggleClass('bx-x bx-menu');
+        }
+        return false;
+      }
+    }
+  });
 
-	// OCULTANDO SUBMENU
-	$('.navegacion .submenu li.go-back').click(function(){
-
-		$(this).parent().css({'left':'-320px'}); // Ocultamos el submenu
-
-	});
-
-});
+})(jQuery);
