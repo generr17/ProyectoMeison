@@ -28,46 +28,8 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container-fluid">
-
-      <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>Simple</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
-      <nav class="nav-menu">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="nosotros.html">About Us</a></li>
-          <li><a href="historia.html">Why Us</a></li>
-         
-          <li class="drop-down"><a href="">Productos</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="productos.html">Producto 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li>
-          <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
-          <li><a href="contacto.html">Contact Us</a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End #header -->
+<?php include('header.php'); ?>
+<!-- End #header -->
 
 
 
@@ -106,15 +68,9 @@
   
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Siimple</span></strong>. All Rights Reserved
-      </div>
-      
-    </div>
-  </footer><!-- End #footer -->
+   <!-- ======= Footer ======= -->
+   <?php include('footer.php'); ?>
+  <!-- End #footer -->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
